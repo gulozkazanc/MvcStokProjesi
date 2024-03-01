@@ -10,6 +10,8 @@
         <th>MÜŞTERİ ID</th>
         <th>MÜŞTERİ ADI</th>
         <th>MÜŞTERİ SOYADI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
     </tr>
     <tbody>
         @foreach (var mstr in Model)
@@ -18,7 +20,8 @@
             <th>@mstr.MUSTERIID </th>
             <td>@mstr.MUSTERIAD</td>
             <td>@mstr.MUSTERISOYAD</td>
-
+            <td><a href=" /MUSTERI/SIL/@mstr.MUSTERIID" class="btn btn-danger">SİL</a></td>
+            <td><a href=" /MUSTERI/GUNCELLE/@mstr.MUSTERIID" class="btn btn-success">GÜNCELLE</a></td>
         </tr>
 
         }

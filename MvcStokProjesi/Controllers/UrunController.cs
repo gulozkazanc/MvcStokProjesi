@@ -30,9 +30,25 @@ namespace MvcStokProjesi.Controllers
         [HttpPost]
         public ActionResult UrunEkle(TBL_URUNLER p1)
         {
+            var ktg = db.TBL_KATEGORILER.Where(m => m.KATEGORIID == p1.TBL_KATEGORILER.KATEGORIID).FirstOrDefault();//liste içerisinde seçtiğimiz ilk değeri getirecek
+            p1.TBL_KATEGORILER = ktg;
             db.TBL_URUNLER.Add(p1);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult SIL(int id)
+        {
+            var urun = db.TBL_URUNLER.Find(id);
+            db.TBL_URUNLER.Remove(urun);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        
+        
+        
+        
+        
+        
         }
     }
 }

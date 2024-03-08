@@ -37,5 +37,11 @@ namespace MvcStokProjesi.Controllers
             db.SaveChanges();
             return RedirectToAction("index");
         }
+        public ActionResult MusteriGetir(int id)
+        {
+            var mus = db.TBL_MUSTERILER.Find(id);
+            return View("MusteriGetir",mus);
+
+        }
     }
 }

@@ -32,17 +32,17 @@ namespace MvcStokProjesi.Controllers
         {
             var ktg = db.TBL_KATEGORILER.Where(m => m.KATEGORIID == p1.TBL_KATEGORILER.KATEGORIID).FirstOrDefault();//liste içerisinde seçtiğimiz ilk değeri getirecek
             p1.TBL_KATEGORILER = ktg;
-            db.TBL_URUNLER.Add(p1);
+            db.TBL_URUNLER.Add(p1);//add metodu ekleme için kullanılır.
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult SIL(int id)
         {
-            var urun = db.TBL_URUNLER.Find(id);
-            db.TBL_URUNLER.Remove(urun);
+            var urun = db.TBL_URUNLER.Find(id);//id yi bul
+            db.TBL_URUNLER.Remove(urun);//Remove metodu ile kaldır
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index");//Silme işlemi yaptıktan sonra Indexi çağır
         
         
         

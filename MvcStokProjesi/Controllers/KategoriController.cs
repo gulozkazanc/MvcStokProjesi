@@ -34,7 +34,7 @@ namespace MvcStokProjesi.Controllers
         {
             db.TBL_KATEGORILER.Add(p1);
             db.SaveChanges();
-            return View();//Sayfayı geri döndür
+            return RedirectToAction("Index");//Sayfayı geri döndür
         }
         public ActionResult SIL(int id)
         {
@@ -43,6 +43,11 @@ namespace MvcStokProjesi.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
 
+        }
+        public ActionResult KategoriGetir(int id)
+        {
+            var ktgr = db.TBL_KATEGORILER.Find(id);
+            return View("KategoriGetir",ktgr);
         }
     }
 }

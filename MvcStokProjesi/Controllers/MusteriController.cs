@@ -27,7 +27,15 @@ namespace MvcStokProjesi.Controllers
         {
             db.TBL_MUSTERILER.Add(p1);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("index");
+        }
+
+        public ActionResult SIL(int id)
+        {
+            var musteri = db.TBL_MUSTERILER.Find(id);
+          
+            db.SaveChanges();
+            return RedirectToAction("index");
         }
     }
 }

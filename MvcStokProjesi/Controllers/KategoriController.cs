@@ -21,5 +21,20 @@ namespace MvcStokProjesi.Controllers
 
             return View(degerler);//degerler i geri döndürsün.
         }
+        [HttpGet] //Sayfa yüklenince bunu yap
+        public ActionResult YeniKategori()
+        {
+            return View();
+        }
+        //HttpPost:sayfaya herhangi post işlemi yapıldığı zaman mesela butona bastığım zaman işlemi gerçekleştir.
+        //HttpGet:sayfada herhangi işlem yapmazsam mesela butona tıklamazsam Hiçbirşey yapma sayfayı geri döndür. 
+       
+        [HttpPost]//birşeye tıklanınca bunu yap
+        public ActionResult YeniKategori(TBL_KATEGORILER p1)
+        {
+            db.TBL_KATEGORILER.Add(p1);
+            db.SaveChanges();
+            return View();//Sayfayı geri döndür
+        }
     }
 }
